@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS 27 Development"
+  short_description: "Adapt iPhone apps to iOS 27 and resizable scenes"
+  default_prompt: "Use $ios-27-development to implement and verify the relevant Apple platform 27 changes in this project."

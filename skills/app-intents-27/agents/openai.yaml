@@ -1,0 +1,4 @@
+interface:
+  display_name: "App Intents and Siri 27"
+  short_description: "Expose typed actions and context to Siri AI"
+  default_prompt: "Use $app-intents-27 to implement and verify the relevant Apple platform 27 changes in this project."

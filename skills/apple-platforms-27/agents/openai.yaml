@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Platforms 27 Development"
+  short_description: "Plan and verify Apple platform 27 adoption"
+  default_prompt: "Use $apple-platforms-27 to implement and verify the relevant Apple platform 27 changes in this project."

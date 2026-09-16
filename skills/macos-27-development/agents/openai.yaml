@@ -1,0 +1,4 @@
+interface:
+  display_name: "macOS 27 Development"
+  short_description: "Adopt macOS 27 with native Mac interactions"
+  default_prompt: "Use $macos-27-development to implement and verify the relevant Apple platform 27 changes in this project."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPadOS 27 Development"
+  short_description: "Build resizable, keyboard-ready iPadOS 27 apps"
+  default_prompt: "Use $ipados-27-development to implement and verify the relevant Apple platform 27 changes in this project."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Core AI 27"
+  short_description: "Deploy custom models with Apple Core AI 27"
+  default_prompt: "Use $core-ai-27 to implement and verify the relevant Apple platform 27 changes in this project."

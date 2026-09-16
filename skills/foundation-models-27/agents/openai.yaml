@@ -1,0 +1,4 @@
+interface:
+  display_name: "Foundation Models 27"
+  short_description: "Build and evaluate Foundation Models 27 features"
+  default_prompt: "Use $foundation-models-27 to implement and verify the relevant Apple platform 27 changes in this project."

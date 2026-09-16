@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftUI 27 Adoption"
+  short_description: "Migrate SwiftUI APIs with exact platform checks"
+  default_prompt: "Use $swiftui-27-adoption to implement and verify the relevant Apple platform 27 changes in this project."
