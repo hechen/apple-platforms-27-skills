@@ -11,10 +11,12 @@ Initial validation: September 15, 2026. These results describe the checked artif
 | Portable repository validation | Metadata, sibling/reference links, optional UI prompts, and absence of machine-specific home paths |
 | Validator regression checks | Valid references, missing references, mismatched discovery name, invalid YAML shape, escaping file link |
 | Skills CLI installation | Version 1.5.26; all eight skills installed for 13 selected agent IDs in an isolated project |
+| Public GitHub installation | The same 13-agent installation succeeded directly from `hechen/apple-platforms-27-skills`; all skill files matched the published source |
 | Installed content integrity | Every skill file matched the source byte-for-byte across all six distinct destination roots |
 | GitHub CLI installation | Version 2.97.0; local discovery and full-set installation into an isolated custom directory |
 | SDK compile probe | Xcode 27.0 (27A266a); selected APIs type-checked for arm64 iOS 27.0 and macOS 27.0 |
 | Read-only SDK helper | Inventory, known symbol, missing symbol, and incomplete arguments checked |
+| Public access and CI | Anonymous repository/README access verified; GitHub Actions portable validation passed |
 
 ## Tested agent installation routes
 
