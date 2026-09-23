@@ -32,3 +32,7 @@ In the new document API, the macOS `newDocument` environment action can accept a
 ## Optional integrations
 
 Siri/Spotlight work belongs in [app-intents-27](../app-intents-27/SKILL.md); in-app model work in [foundation-models-27](../foundation-models-27/SKILL.md). Apple's Mac guide links Safari 27, media, and Spatial Preview APIs; follow those only when requested. None grants arbitrary access to other apps' data.
+
+## September 23 refresh
+
+Consult [dated release updates](../apple-platforms-27/references/release-updates.md) for relevant 27.2 beta and toolchain caveats. Check the exact SDK and runtime before applying a beta workaround.

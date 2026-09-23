@@ -30,3 +30,7 @@ Read [handwriting.md](references/handwriting.md) for PencilKit recognition and p
 ## Acceptance
 
 Exercise a real editing flow in two windows, resize both, move focus and selection, background/reopen, and verify the saved result. Add physical-device Pencil and external-display checks only for adopted capabilities. Preserve existing file compatibility when newer ink or recognition data is introduced.
+
+## September 23 refresh
+
+Consult [dated release updates](../apple-platforms-27/references/release-updates.md) for relevant 27.2 beta and toolchain caveats. Check the exact SDK and runtime before applying a beta workaround.

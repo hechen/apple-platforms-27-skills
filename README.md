@@ -1,37 +1,48 @@
+<div align="center">
+
 # Apple Platforms 27 Skills
 
-**Apple-documented development guidance for iOS 27, iPadOS 27, macOS 27, and Xcode 27 — packaged as portable agent skills.**
+**Build for iPhone, iPad, Mac — and iPhone Duo.**
 
-Use these skills with **Claude Code, Cursor, GitHub Copilot, Gemini CLI, Windsurf/Cascade, OpenCode, Cline, Roo Code, Continue, Antigravity, Amp, OpenClaw, Codex**, and other tools that support the [Agent Skills standard](https://agentskills.io/specification).
+Nine portable coding-agent skills grounded in Apple documentation and checked against real SDKs.
 
-Eight focused skills help a coding agent make informed platform decisions, check actual SDK declarations, implement the relevant changes, and verify the resulting behavior. The core instructions are plain Markdown with standard YAML metadata. No proprietary agent API, MCP server, or model provider is required to read them.
+[Install](#install) · [Explore the skills](#skill-catalog) · [iPhone Duo](#iphone-duo) · [What's new](CHANGELOG.md) · [Validation](docs/validation.md)
 
-[Get started](#quick-start) · [Skill catalog](#skill-catalog) · [Installation and compatibility](docs/installation.md) · [Validation](docs/validation.md) · [Contributing](CONTRIBUTING.md)
+</div>
 
-## Why this exists
+<table>
+  <tr>
+    <td width="33%" align="center"><a href="https://developer.apple.com/ios/"><img src="https://developer.apple.com/ios/images/hero-vx-ios_2x.png" alt="Apple's iOS 27 interface preview" width="260"></a><br><strong>iOS 27</strong><br>Adaptive iPhone experiences</td>
+    <td width="33%" align="center"><a href="https://developer.apple.com/ipados/"><img src="https://developer.apple.com/ipados/images/hero-ipad-m4-ipados27-light_2x.jpg" alt="Apple's iPadOS 27 interface preview" width="260"></a><br><strong>iPadOS 27</strong><br>Windows, documents, and input</td>
+    <td width="33%" align="center"><a href="https://developer.apple.com/macos/"><img src="https://developer.apple.com/macos/images/screen-macos27-large_2x.jpg" alt="Apple's macOS 27 desktop preview" width="260"></a><br><strong>macOS 27</strong><br>Native desktop interactions</td>
+  </tr>
+</table>
 
-A new Apple OS release introduces several different kinds of change at once: consumer features, public framework APIs, compiler behavior, linked-SDK requirements, and services restricted by hardware or account eligibility. Treating all of them as “an iOS 27 API” produces bad migrations.
+<sub>Platform previews © Apple Inc., linked from Apple's developer pages. [Image credits](docs/image-credits.md).</sub>
 
-This collection turns the release into practical implementation guidance:
+## Give your agent the platform context it needs
 
-- **Start with the product goal.** Choose the relevant capability instead of adopting every new framework.
-- **Check the API that actually ships.** Confirm spelling, platform exclusions, deployment availability, and runtime readiness.
-- **Preserve compatibility.** Keep existing deployment targets, public interfaces, and file formats unless the requested change requires a deliberate migration.
-- **Validate the real integration.** Compilation, system discovery, persisted data, device behavior, and service access are separate results.
+Apple releases combine new APIs, compiler changes, linked-SDK requirements, and capabilities that depend on hardware or service eligibility. These skills help an agent distinguish those cases, choose the right implementation path, and verify the result in your app.
 
-The collection began with the topics in [MacRumors’ features-to-try introduction](https://www.macrumors.com/guide/ios-27-features-to-try-first/). Technical guidance comes from Apple’s documentation, WWDC26 sessions, release notes, and SDK inspection. The [feature map](skills/apple-platforms-27/references/feature-map.md) connects those consumer topics to public development paths and identifies cases where an equivalent public API was not established.
+- **Build adaptive interfaces.** Preserve navigation and editing state across resizing, windows, and Duo display transitions.
+- **Use the right API.** Check declarations, platform exclusions, deployment availability, and runtime readiness before adopting a feature.
+- **Integrate useful intelligence.** Expose typed actions to Siri or build app-owned AI with explicit availability and privacy boundaries.
+- **Keep existing apps working.** Preserve deployment targets, document formats, and public interfaces unless the requested migration requires a change.
 
-## Quick start
+Use the same instructions with **Claude Code, Cursor, GitHub Copilot, Gemini CLI, Windsurf, OpenCode, Cline, Roo Code, Continue, Antigravity, Amp, OpenClaw, and Codex**. The core is standard `SKILL.md` Markdown; no particular model, MCP server, or agent vendor is required.
 
-Run this **from the app project where you want to use the skills**. Requires Node.js/npm:
+## Install
+
+From the app repository where you want to use the skills:
 
 ```sh
 npx skills add hechen/apple-platforms-27-skills --skill '*'
 ```
 
-Select your agent when prompted. Install all eight skills together: their relative links connect the platform guidance to the shared framework guidance.
+Select your agent when prompted. Install all **nine** skills together so their shared references remain available.
 
-For a specific agent:
+<details>
+<summary><strong>Choose specific agents or install globally</strong></summary>
 
 ```sh
 # Claude Code
@@ -40,112 +51,118 @@ npx skills add hechen/apple-platforms-27-skills --skill '*' --agent claude-code
 # Cursor
 npx skills add hechen/apple-platforms-27-skills --skill '*' --agent cursor
 
-# Multiple agents in one project
+# Several agents in one project
 npx skills add hechen/apple-platforms-27-skills --skill '*' \
   --agent github-copilot gemini-cli opencode codex
+
+# User-wide Codex installation
+npx skills add hechen/apple-platforms-27-skills --skill '*' --agent codex --global
 ```
 
-The [Skills CLI](https://github.com/vercel-labs/skills) handles each agent’s installation location. For GitHub CLI, manual installation, global scope, Windsurf, and additional agents, see [installation.md](docs/installation.md).
+Requires Node.js/npm. [Installation and compatibility](docs/installation.md) covers GitHub CLI, manual installation, additional hosts, updates, and activation.
 
-Then ask your agent:
+</details>
 
-> Use the apple-platforms-27 skill to assess this app for iOS 27, iPadOS 27, and macOS 27 adoption. Preserve the current minimum deployment targets. Implement the changes relevant to this feature and verify them on the affected platforms.
+Then give your agent a concrete task:
 
-Use your agent’s skill picker or explicit invocation syntax if it does not select the skill automatically. For example, Claude Code supports `/apple-platforms-27`; Codex supports `$apple-platforms-27`. A plain-language request naming the skill is the portable starting point, not a guarantee of identical activation behavior in every host. See [Claude’s skill documentation](https://code.claude.com/docs/en/skills) and your host’s current instructions.
+> Use apple-platforms-27 to assess this app for iOS 27, iPadOS 27, and macOS 27. Preserve our minimum deployment targets, implement the changes relevant to this feature, and verify each affected platform.
+
+Explicit invocation depends on the host. For example, Codex uses `$apple-platforms-27`; Claude Code supports `/apple-platforms-27`. Naming the skill in plain language is the portable starting point.
 
 ## Skill catalog
 
-| Skill | When to use it | What it helps verify |
+| Skill | Use it for | Main checks |
 |---|---|---|
-| [apple-platforms-27](skills/apple-platforms-27/SKILL.md) | Cross-platform planning and upgrade coordination | Public API evidence, feature mapping, deployment and runtime distinctions |
-| [ios-27-development](skills/ios-27-development/SKILL.md) | iPhone SDK migration and adaptive layouts | Scene lifecycle, launch metadata, resizing, iPhone Mirroring |
-| [ipados-27-development](skills/ipados-27-development/SKILL.md) | iPad productivity and document workflows | Independent windows, keyboard/pointer input, external displays, handwriting |
-| [macos-27-development](skills/macos-27-development/SKILL.md) | Native Mac adoption | Commands, focus, AppKit menus/toolbars, documents, window behavior |
-| [swiftui-27-adoption](skills/swiftui-27-adoption/SKILL.md) | SwiftUI compilation or feature migration | State/ContentBuilder, platform-specific toolbars, documents, reordering, image caching |
-| [app-intents-27](skills/app-intents-27/SKILL.md) | Siri AI, Shortcuts, and Spotlight integration | App Schemas, stable entities, indexing, annotations, system-path tests |
-| [foundation-models-27](skills/foundation-models-27/SKILL.md) | AI features inside an app | Image prompts, typed output, Dynamic Profiles, providers, PCC, evaluations |
-| [core-ai-27](skills/core-ai-27/SKILL.md) | Running a custom neural model | Model conversion, specialization, descriptors, caching, device performance |
+| [apple-platforms-27](skills/apple-platforms-27/SKILL.md) | Planning an upgrade across platforms | API evidence, feature mapping, deployment and runtime boundaries |
+| [ios-27-development](skills/ios-27-development/SKILL.md) | Modernizing an iPhone app | Scene lifecycle, launch metadata, resizing, iPhone Mirroring |
+| [iphone-duo-development](skills/iphone-duo-development/SKILL.md) | Adapting to the foldable iPhone | Reserved regions, vertical bars, hinge state, scenes, cameras |
+| [ipados-27-development](skills/ipados-27-development/SKILL.md) | Building iPad productivity workflows | Independent windows, keyboard/pointer input, external displays, handwriting |
+| [macos-27-development](skills/macos-27-development/SKILL.md) | Delivering a native Mac experience | Commands, focus, AppKit, documents, window behavior |
+| [swiftui-27-adoption](skills/swiftui-27-adoption/SKILL.md) | Migrating or adopting SwiftUI APIs | State/ContentBuilder, toolbars, documents, reordering, image caching |
+| [app-intents-27](skills/app-intents-27/SKILL.md) | Integrating Siri, Shortcuts, and Spotlight | Schemas, stable entities, indexing, annotations, system-path tests |
+| [foundation-models-27](skills/foundation-models-27/SKILL.md) | Building AI features inside an app | Image prompts, typed output, Dynamic Profiles, providers, PCC, evaluations |
+| [core-ai-27](skills/core-ai-27/SKILL.md) | Running your own neural models | Conversion, specialization, descriptors, caching, device performance |
 
-### 1. Plan an upgrade without losing compatibility
+Start with the coordinator when the scope is broad. Load a focused skill directly when the task is already clear.
 
-The coordinator starts from the project’s targets, selected Xcode, minimum OS versions, entitlements, and requested behavior. It routes to only the relevant skills. An improvement delivered by a compiler upgrade should not automatically raise the deployment target; a runtime-only feature needs an availability boundary and a useful fallback.
+## iPhone Duo
 
-### 2. Build for the actual window
+<a href="https://developer.apple.com/iphone-duo/">
+  <img src="https://developer.apple.com/iphone-duo/images/main_2x.png" alt="Apple's iPhone Duo opened to show its large inner display and central fold" width="900">
+</a>
 
-The platform skills focus on scene ownership, container-driven layout, keyboard and pointer input, and preservation of editing state. They distinguish native macOS, Catalyst, and iOS apps running on Mac. Document changes include saved-file round trips and existing format compatibility, not just a successful build.
+<sub>iPhone Duo illustration © Apple Inc. Source: [Get ready for iPhone Duo](https://developer.apple.com/iphone-duo/). This is Apple's device illustration, not an app built or tested by this project.</sub>
 
-### 3. Adopt SwiftUI with precise availability
+**New in v1.1:** dedicated guidance for the layout and lifecycle changes a folding display introduces.
 
-SwiftUI guidance addresses source migration and optional feature adoption separately. It records discrepancies between WWDC descriptions and final declarations. For example, the observed SDK uses `toolbarMinimizationBehavior(_:for:)`; mobile pinned/overflow toolbar APIs are explicitly unavailable on macOS. See the [dated API notes](skills/swiftui-27-adoption/references/api-notes.md) and [Apple’s toolbar documentation](https://developer.apple.com/documentation/swiftui/toolbarminimizationbehavior).
+| Area | What the skill helps you do |
+|---|---|
+| **Adaptive layout** | Use container geometry, independent safe-area edges, and appropriate arrangement containers |
+| **Fold and camera regions** | Distinguish divisions from occlusions; handle active state and right-to-left coordinates |
+| **Vertical bars** | Adapt standard navigation, symbols, axis preferences, priorities, and overflow |
+| **Hinge and scenes** | Handle optional hinge state and preserve app state as displays and windows change |
+| **Camera experiences** | Choose cameras by direction, handle preview mirroring, and add optional capture accessories |
+| **Verification** | Exercise closed/open/folded poses, Split View, accessibility, older devices, and physical capture |
 
-### 4. Make app capabilities usable by Siri
+> Use iphone-duo-development to audit this editor. Keep drafts and selection stable while opening, closing, and rotating the device. Fix inaccessible controls around the fold, and report which transitions were actually tested.
 
-App Intents guidance starts with typed actions and entities backed by the app’s authoritative data store. It covers appropriate schemas, index lifecycle, visible/selected content annotations, and integration tests through the system. It does not interpret Siri’s access to personal context as permission for an app to read other apps’ private data.
+**Toolchain note — September 23, 2026:** Apple's Xcode 27.2 beta notes direct Duo development to **Xcode 27.1 beta** for its SDK and simulator support. Selected Duo APIs in this repository compile with **Xcode 27.1 (27A9269)**. See the [dated release review](skills/apple-platforms-27/references/release-updates.md) and [Apple's release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes).
 
-### 5. Ship an AI feature with explicit boundaries
+## More ways to use the skills
 
-Foundation Models guidance separates on-device generation, Private Cloud Compute, and third-party providers. It includes availability, quotas, cancellation, structured-output validation, tool authorization, and evaluation. Core AI covers the lower-level custom-model path. Neither skill silently changes an on-device promise into cloud processing.
+### Fix an SDK migration
 
-## Example requests
+> Use swiftui-27-adoption to diagnose these Xcode 27 build errors. Keep our deployment target and public interfaces. Fix the actual diagnostics and verify both iOS and macOS targets.
 
-**Fix an SDK migration**
+### Improve iPad behavior
 
-> Use swiftui-27-adoption to diagnose the Xcode 27 build errors. Keep the existing deployment target and public interfaces. Fix the actual diagnostics and verify both iOS and macOS targets.
+> Use ipados-27-development to make this editor work in narrow and wide windows. Keep selection and unsaved edits stable with two windows open. Verify keyboard navigation and save/reopen behavior.
 
-**Improve iPad behavior**
+### Expose an action to Siri
 
-> Use ipados-27-development to make this editor work across narrow and wide windows. Keep selection and unsaved edits stable when two windows are open. Verify keyboard navigation and save/reopen behavior.
+> Use app-intents-27 to let people find and update an item. Choose a matching documented schema, reuse our domain service, and test stale IDs, cancellation, and the saved result.
 
-**Expose a useful Siri action**
+### Add private image analysis
 
-> Use app-intents-27 to let people find and update an item in this app. Choose a matching documented schema if one exists, reuse the domain service, and test stale IDs, cancellation, and the saved result.
+> Use foundation-models-27 to extract structured attributes from a selected photo. Keep processing on-device, handle model-unavailable states, and require review before saving inferred values.
 
-**Add private image analysis**
+## Evidence and compatibility
 
-> Use foundation-models-27 to extract structured attributes from a selected photo. Keep processing on-device, support model-unavailable states, and require review before saving inferred values.
+The skills combine **Apple documentation**, **release notes**, **WWDC/Tech Talk sessions**, and **SDK inspection**. Consumer features are mapped to public development paths in the [feature map](skills/apple-platforms-27/references/feature-map.md).
 
-## Agent compatibility
+| Verified for this update | Scope |
+|---|---|
+| Portable packaging | Nine skill entrypoints, linked resources, optional host metadata |
+| Installation | Skills CLI 1.5.26 recognized 13 selected agents; copied files matched across six destination roots |
+| Baseline API probe | Selected APIs type-checked for iOS 27.0 and macOS 27.0 deployment targets |
+| Duo API probe | Selected SwiftUI, UIKit, and AVKit calls type-checked for iOS 27.1 |
 
-The same eight `SKILL.md` files serve every agent. Supporting references and the SDK helper use relative paths. The optional `agents/openai.yaml` files provide Codex UI metadata; the actual workflow does not depend on them, and other hosts can ignore them.
+Installation does not prove activation in every agent. Compilation does not prove an app's behavior on a device. The skills require task-specific verification; camera capture and accessory presentation still need physical-device testing. [Full validation record](docs/validation.md).
 
-We distinguish **format compatibility**, **successful installation**, **agent activation**, and **successful app work**. A successful installer test does not prove that every model and agent version follows every instruction correctly. The exact tested installation routes and limits are in [validation.md](docs/validation.md).
+The same core files serve every host. Optional `agents/openai.yaml` files add Codex UI metadata; other agents can ignore them. Tools without native skill discovery can read a selected entrypoint and its references as ordinary task context. See [installation](docs/installation.md).
 
-Tools without native Agent Skills support can still read the relevant `SKILL.md` and references as task context. That is a manual fallback, not automatic skill discovery. Do not flatten all eight skills into an always-loaded rule file: select the task-specific material.
+## Development and maintenance
 
-## Requirements
-
-- Reading and installing the guidance does not require a Mac.
-- Building or type-checking Apple platform code requires a compatible Mac and Xcode with the relevant SDKs.
-- The read-only SDK helper requires Python 3 and command-line access to the selected Xcode.
-- Framework-specific services, capabilities, accounts, and physical-device checks remain subject to Apple’s current requirements.
-
-Example SDK inspection, run from this repository:
+Reading the skills does not require a Mac. Building Apple-platform code requires a compatible Mac and the relevant Xcode SDKs. The read-only SDK helper requires Python 3:
 
 ```sh
 python3 skills/apple-platforms-27/scripts/sdk_probe.py \
   --sdk iphoneos --framework SwiftUI --symbol toolbarMinimizationBehavior
 ```
 
-## Repository layout
-
 ```text
-skills/                 Eight portable skill directories
-  <skill>/SKILL.md      Standard metadata and task instructions
-  <skill>/references/  Focused technical guidance, where needed
-  <skill>/agents/      Optional host UI metadata
-docs/                   Installation, sources, and validation
-scripts/                Repository validation and SDK compile checks
-tests/                  Validation tests and a small Swift compile probe
+skills/     Nine portable skills, focused references, optional UI metadata
+docs/       Installation, source policy, image credits, validation
+scripts/    Packaging validation and SDK compile checks
+tests/      Validator regression tests and Swift API probes
 ```
 
-## Sources and maintenance
+**Latest review:** September 23, 2026. The update covers Duo and relevant 27.2 beta changes, including the JSON project configuration format and Catalyst caveats. The original iOS/iPadOS 27.0 and macOS 27.0 release notes matched the September 15 research snapshots. [Changelog](CHANGELOG.md) · [Sources and scope](docs/sources.md) · [Contributing](CONTRIBUTING.md).
 
-Initial technical review: **September 15, 2026**. Initial SDK checks: **Xcode 27.0 (27A266a)** with iOS/macOS 27.0 SDKs. These are dated observations; the skills ask the implementing agent to inspect the current environment before relying on them.
+The collection began with [MacRumors' iOS 27 introduction](https://www.macrumors.com/guide/ios-27-features-to-try-first/); technical instructions rely on primary Apple sources. Corrections should identify the source, affected SDK, and a focused reproduction when appropriate.
 
-Start with Apple’s [iOS guide](https://developer.apple.com/wwdc26/guides/ios/), [iPadOS guide](https://developer.apple.com/wwdc26/guides/ipados/), and [macOS guide](https://developer.apple.com/wwdc26/guides/macos/). [Sources and scope](docs/sources.md) explains how evidence is selected and which consumer capabilities are not established public APIs.
+## License and credits
 
-Corrections should include an Apple source, affected SDK/platform, and a focused reproduction when appropriate. See [CONTRIBUTING.md](CONTRIBUTING.md).
+[MIT](LICENSE) covers this repository's original instructions and code. Apple images are remotely embedded from Apple's sites, credited in [image credits](docs/image-credits.md), and are **not covered by this repository's MIT license**. Linked documentation retains its respective ownership and terms.
 
-## License
-
-[MIT](LICENSE) for this repository’s original instructions and code. Linked Apple and third-party documentation retains its respective ownership and terms. This is an independent community project, not an Apple or agent-vendor product.
+An independent community project, not affiliated with or endorsed by Apple or any agent vendor.

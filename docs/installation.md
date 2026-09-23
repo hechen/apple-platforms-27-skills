@@ -1,6 +1,6 @@
 # Installation and agent compatibility
 
-Install the **complete set of eight skill directories**. Shared platform/framework guidance uses sibling relative links. Copying only `SKILL.md` loses supporting references; installing only the coordinator leaves its routes unresolved.
+Install the **complete set of nine skill directories**. Shared platform/framework guidance uses sibling relative links. Copying only `SKILL.md` loses supporting references; installing only the coordinator leaves its routes unresolved.
 
 ## Option A: Skills CLI
 
@@ -47,7 +47,7 @@ Run one command for the agent you use. Add `--scope user` for a user-wide instal
 
 ## Option C: Manual installation
 
-Clone or download the repository, then copy the eight directories inside `skills/` into your agent's supported skill directory. Preserve their names and internal files.
+Clone or download the repository, then copy the nine directories inside `skills/` into your agent's supported skill directory. Preserve their names and internal files.
 
 Common **project** locations documented by the hosts include:
 

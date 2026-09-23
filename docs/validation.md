@@ -55,3 +55,13 @@ The Swift source is [Platform27Probe.swift](../tests/Platform27Probe.swift). It 
 No production app, Siri integration, model generation, managed entitlement, physical-device benchmark, document migration, or App Store release was executed as part of authoring this collection. Those checks depend on a real application and remain explicit steps in the relevant skill.
 
 A source link that resolves is not proof that its content will never change. Research dates and SDK observations are recorded in the technical references; implementing agents must refresh changing assumptions.
+
+## September 23, 2026 — v1.1 update
+
+- All nine skills passed portable metadata and local-link validation; all five validator regression checks passed.
+- Skills CLI 1.5.26 installed the updated collection for the same 13 agent IDs into an isolated project. Every skill file matched the source across all six destination roots.
+- Xcode 27.1 (27A9269) type-checked the baseline probe for arm64 iOS 27.0 and macOS 27.0 targets using its iOS 27.1 and macOS 27.0 SDKs.
+- The new [iPhoneDuoProbe.swift](../tests/iPhoneDuoProbe.swift) type-checked for arm64 iOS 27.1. It covers arrangement styles, region queries, hinge callbacks, toolbar axis behavior, capture accessories, and camera-direction descriptors in SwiftUI/UIKit/AVKit.
+- The Duo check is opt-in: `bash scripts/check-sdk.sh --duo`. It intentionally fails if the selected SDK lacks these declarations; a newer version number alone does not establish Duo support.
+- No interactive Duo app, physical camera session, scene-accessory presentation, 27.2 app build, or cross-platform UI-framework adapter was tested. The pose matrix is an acceptance plan, not completed runtime evidence.
+- README images are remote Apple assets with source credits, alt text, and an explicit exclusion from the repository's MIT license.

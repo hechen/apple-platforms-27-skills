@@ -33,3 +33,7 @@ The core follows the [Agent Skills specification](https://agentskills.io/specifi
 ## Research date
 
 The initial review and API snapshot are dated September 15, 2026. Version-sensitive assumptions belong in a dated reference with a source link, not as permanent unconditional rules. Contributions should update evidence when an SDK or service changes.
+
+## September 23 update
+
+The [dated release review](../skills/apple-platforms-27/references/release-updates.md) records current 27.1/27.2 findings and the unchanged 27.0 baseline snapshots. The [Duo skill](../skills/iphone-duo-development/SKILL.md) links Apple API references, preparation/design sessions, and distribution specifications beside the guidance.

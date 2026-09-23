@@ -35,3 +35,7 @@ For documents, read [documents.md](references/documents.md). For all other rows,
 ## Visual acceptance
 
 Standard controls inherit the refined Liquid Glass appearance. Test actual system transparency/contrast preferences, light/dark appearance, toolbar legibility, and inactive windows. Avoid fixed overlays that defeat the system treatment. Check text-selection gestures against custom gestures, and ensure selected tabs remain visible when tab availability changes.
+
+## September 23 refresh
+
+Consult [dated release updates](../apple-platforms-27/references/release-updates.md) for relevant 27.2 beta and toolchain caveats. Use [iphone-duo-development](../iphone-duo-development/SKILL.md) for 27.1 arrangement, reserved-region, and vertical-bar adoption; those APIs require their own availability boundaries.

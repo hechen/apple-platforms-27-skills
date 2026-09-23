@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPhone Duo Development"
+  short_description: "Build adaptive Duo layouts, scenes, and camera flows"
+  default_prompt: "Use $iphone-duo-development to audit this app for iPhone Duo, implement relevant changes, and verify transitions while preserving older-device support."

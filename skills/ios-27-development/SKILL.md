@@ -25,6 +25,10 @@ When relevant, inspect presentation trait overrides, search/navigation bar layou
 
 Read [migration-checks.md](references/migration-checks.md) for focused searches and acceptance cases.
 
+## iPhone Duo and later betas
+
+For iPhone Duo, use [iphone-duo-development](../iphone-duo-development/SKILL.md): general resizability alone does not cover fold regions, vertical bars, camera direction, or capture accessories. Check [dated release updates](../apple-platforms-27/references/release-updates.md) when using 27.1 or 27.2 beta SDKs.
+
 ## Related work
 
 For SwiftUI migration, read [swiftui-27-adoption](../swiftui-27-adoption/SKILL.md). For Siri use [app-intents-27](../app-intents-27/SKILL.md); for app-owned generation use [foundation-models-27](../foundation-models-27/SKILL.md). A system Siri rollout and availability of an in-app model are separate checks.
