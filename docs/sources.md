@@ -36,4 +36,8 @@ The initial review and API snapshot are dated September 15, 2026. Version-sensit
 
 ## September 23 update
 
-The [dated release review](../skills/apple-platforms-27/references/release-updates.md) records current 27.1/27.2 findings and the unchanged 27.0 baseline snapshots. The [Duo skill](../skills/iphone-duo-development/SKILL.md) links Apple API references, preparation/design sessions, and distribution specifications beside the guidance.
+The [dated release review](../skills/apple-platforms-27/references/release-updates.md) records current 27.1/27.2 findings and the unchanged 27.0 baseline snapshots.
+
+## iPhone Duo
+
+On September 25, 2026, the iPhone Duo skill, its Apple sources, and its API probe moved to [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills). Its [SOURCES.md](https://github.com/hechen/iphone-duo-skills/blob/main/SOURCES.md) lists the Duo documentation and sessions.

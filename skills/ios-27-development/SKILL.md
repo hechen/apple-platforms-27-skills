@@ -27,7 +27,7 @@ Read [migration-checks.md](references/migration-checks.md) for focused searches 
 
 ## iPhone Duo and later betas
 
-For iPhone Duo, use [iphone-duo-development](../iphone-duo-development/SKILL.md): general resizability alone does not cover fold regions, vertical bars, camera direction, or capture accessories. Check [dated release updates](../apple-platforms-27/references/release-updates.md) when using 27.1 or 27.2 beta SDKs.
+For iPhone Duo, use `iphone-duo-development` from [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills), installed separately: general resizability alone does not cover fold regions, vertical bars, camera direction, or capture accessories. Check [dated release updates](../apple-platforms-27/references/release-updates.md) when using 27.1 or 27.2 beta SDKs.
 
 ## Related work
 

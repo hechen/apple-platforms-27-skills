@@ -61,7 +61,15 @@ A source link that resolves is not proof that its content will never change. Res
 - All nine skills passed portable metadata and local-link validation; all five validator regression checks passed.
 - Skills CLI 1.5.26 installed the updated collection for the same 13 agent IDs into an isolated project. Every skill file matched the source across all six destination roots.
 - Xcode 27.1 (27A9269) type-checked the baseline probe for arm64 iOS 27.0 and macOS 27.0 targets using its iOS 27.1 and macOS 27.0 SDKs.
-- The new [iPhoneDuoProbe.swift](../tests/iPhoneDuoProbe.swift) type-checked for arm64 iOS 27.1. It covers arrangement styles, region queries, hinge callbacks, toolbar axis behavior, capture accessories, and camera-direction descriptors in SwiftUI/UIKit/AVKit.
-- The Duo check is opt-in: `bash scripts/check-sdk.sh --duo`. It intentionally fails if the selected SDK lacks these declarations; a newer version number alone does not establish Duo support.
-- No interactive Duo app, physical camera session, scene-accessory presentation, 27.2 app build, or cross-platform UI-framework adapter was tested. The pose matrix is an acceptance plan, not completed runtime evidence.
+- An iPhone Duo API probe type-checked for arm64 iOS 27.1 through an opt-in `--duo` flag. The probe and the Duo skill moved to [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills) in 2.0.0; see the September 25 entry.
+- No interactive Duo app, physical camera session, scene-accessory presentation, 27.2 app build, or cross-platform UI-framework adapter was tested.
 - README images are remote Apple assets with source credits, alt text, and an explicit exclusion from the repository's MIT license.
+
+## September 25, 2026 — v2.0.0
+
+- The `iphone-duo-development` skill, `tests/iPhoneDuoProbe.swift`, and the `--duo` option of `scripts/check-sdk.sh` were removed. The skill and probe now live in [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills), whose own `scripts/check-sdk.sh` runs the Duo type-check and whose docs record its validation.
+- All eight remaining skills passed `scripts/validate.py`, including local-link checks that would catch a leftover relative link to the removed skill. All five validator regression checks passed.
+- Skills CLI 1.5.26 installed the eight skills from a local copy for the same 13 agent IDs into an isolated project. The six destination roots each held all eight skills, and every file matched the source byte for byte.
+- Xcode 27.1 (27A9269) type-checked the baseline probe for arm64 macOS 27.0 and iOS 27.0.
+- `gh skill publish --dry-run` (GitHub CLI 2.97.0) reported no errors; its only skill warnings were for the optional `license` frontmatter field.
+- These are packaging and compile checks. No agent was launched and no app was run.

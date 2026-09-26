@@ -16,10 +16,10 @@ Coordinate an evidence-based upgrade while preserving the app's deployment targe
 
 ## Routing
 
-| Work | Skill in this bundle |
+| Work | Skill |
 |---|---|
 | iPhone scenes, resizing, Mirroring, launch requirements | [ios-27-development](../ios-27-development/SKILL.md) |
-| iPhone Duo folds, vertical bars, hinge, camera, display transitions | [iphone-duo-development](../iphone-duo-development/SKILL.md) |
+| iPhone Duo folds, vertical bars, hinge, camera, display transitions | `iphone-duo-development` from [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills), a separate collection |
 | iPad windows, input, external displays, handwriting | [ipados-27-development](../ipados-27-development/SKILL.md) |
 | Native Mac windows, commands, AppKit, documents | [macos-27-development](../macos-27-development/SKILL.md) |
 | SwiftUI source migration, toolbars, documents, interactions | [swiftui-27-adoption](../swiftui-27-adoption/SKILL.md) |
@@ -27,9 +27,11 @@ Coordinate an evidence-based upgrade while preserving the app's deployment targe
 | In-app generation, image prompts, PCC, model providers | [foundation-models-27](../foundation-models-27/SKILL.md) |
 | Deploying your own neural models on Apple silicon | [core-ai-27](../core-ai-27/SKILL.md) |
 
+iPhone Duo guidance is not part of this bundle. When the work involves iPhone Duo and `iphone-duo-development` is not installed, ask the user to install that collection (`npx skills add hechen/iphone-duo-skills --skill '*'`) instead of improvising Duo-specific APIs.
+
 Read only the relevant skill. These are release-specific additions to existing framework skills, not a mandate to refactor unrelated code. Framework-specific skills such as CloudKit, StoreKit, WidgetKit, and accessibility remain appropriate for their normal tasks.
 
-Read [release-updates.md](references/release-updates.md) for the September 23 Duo and 27.2 beta review, including toolchain branch differences and project-format compatibility.
+Read [release-updates.md](references/release-updates.md) for the dated 27.1 and 27.2 beta review, including toolchain branch differences and project-format compatibility.
 
 ## Establish API evidence
 

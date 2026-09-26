@@ -1,14 +1,14 @@
 # Release update review — September 23, 2026
 
-These are dated findings, not instructions to adopt every beta. Check the exact project toolchain and OS build before acting.
+These are dated findings, not instructions to adopt every beta. Check the exact project toolchain and OS build before acting. The toolchain notes below were rechecked on September 25, 2026.
 
-## iPhone Duo and toolchain branches
+## Toolchain branches
 
-Apple now publishes [Duo preparation documentation](https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo) and Xcode 27.1 beta. Use [iphone-duo-development](../../iphone-duo-development/SKILL.md) for the new workflow.
+Xcode 27.1 beta ships the iOS 27.1 SDK; its other platform SDKs stay at 27. iPhone Duo guidance, including its 27.1 APIs and simulator limits, lives in [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills).
 
 The [Xcode 27.1 beta notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) identify Catalyst build failures for 27.1-specific APIs. Runtime availability checks do not solve missing declarations: isolate affected code with compile-time platform guards. The notes also describe a separate 27.0 Catalyst deployment setting when the 27.1 iOS target loses its Catalyst destination. Apply this only to the affected configuration, preserving its intended compatibility.
 
-The [Xcode 27.2 beta notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) still direct Duo work to Xcode 27.1 beta. They also warn about incorrect 27.1 deployment-target reporting for macOS, watchOS, tvOS, and visionOS, and new-API problems in Catalyst builds. Verify the branch; do not infer platform availability from the numeric version alone.
+The [Xcode 27.2 beta notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) direct iPhone Duo work back to Xcode 27.1 beta, so the higher-numbered Xcode is not automatically the right one. They also warn about incorrect 27.1 deployment-target reporting for macOS, watchOS, tvOS, and visionOS, and new-API problems in Catalyst builds. Verify the branch; do not infer platform availability from the numeric version alone.
 
 ## Xcode project configuration
 
@@ -30,4 +30,4 @@ The same notes mark the Xcode completion crash fixed, while the Xcode 27.2 notes
 
 ## Scope of this refresh
 
-The fetched iOS/iPadOS 27.0 and macOS 27.0 release-note Markdown matched the September 15 snapshots. This review adds Duo and relevant 27.2 beta guidance; it is not an exhaustive audit of every Apple framework. Existing AI/Siri guidance remains subject to per-feature documentation and availability checks.
+The fetched iOS/iPadOS 27.0 and macOS 27.0 release-note Markdown matched the September 15 snapshots. This review adds relevant 27.2 beta guidance; it is not an exhaustive audit of every Apple framework. The Duo material it originally included moved to hechen/iphone-duo-skills on September 25. Existing AI/Siri guidance remains subject to per-feature documentation and availability checks.

@@ -1,6 +1,8 @@
 # Installation and agent compatibility
 
-Install the **complete set of nine skill directories**. Shared platform/framework guidance uses sibling relative links. Copying only `SKILL.md` loses supporting references; installing only the coordinator leaves its routes unresolved.
+Install the **complete set of eight skill directories**. Shared platform/framework guidance uses sibling relative links. Copying only `SKILL.md` loses supporting references; installing only the coordinator leaves its routes unresolved.
+
+iPhone Duo skills are a separate collection. Install them the same way with `hechen/iphone-duo-skills` in place of this repository; see [its compatibility guide](https://github.com/hechen/iphone-duo-skills/blob/main/COMPATIBILITY.md).
 
 ## Option A: Skills CLI
 
@@ -47,7 +49,7 @@ Run one command for the agent you use. Add `--scope user` for a user-wide instal
 
 ## Option C: Manual installation
 
-Clone or download the repository, then copy the nine directories inside `skills/` into your agent's supported skill directory. Preserve their names and internal files.
+Clone or download the repository, then copy the eight directories inside `skills/` into your agent's supported skill directory. Preserve their names and internal files.
 
 Common **project** locations documented by the hosts include:
 

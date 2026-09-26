@@ -38,4 +38,4 @@ Standard controls inherit the refined Liquid Glass appearance. Test actual syste
 
 ## September 23 refresh
 
-Consult [dated release updates](../apple-platforms-27/references/release-updates.md) for relevant 27.2 beta and toolchain caveats. Use [iphone-duo-development](../iphone-duo-development/SKILL.md) for 27.1 arrangement, reserved-region, and vertical-bar adoption; those APIs require their own availability boundaries.
+Consult [dated release updates](../apple-platforms-27/references/release-updates.md) for relevant 27.2 beta and toolchain caveats. For 27.1 arrangement, reserved-region, and vertical-bar adoption on iPhone Duo, use `iphone-duo-development` from [hechen/iphone-duo-skills](https://github.com/hechen/iphone-duo-skills); those APIs require their own availability boundaries.

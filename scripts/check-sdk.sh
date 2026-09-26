@@ -11,10 +11,4 @@ for skillset_spec in 'macosx arm64-apple-macos27.0' 'iphoneos arm64-apple-ios27.
   printf 'Type-check passed: %s\n' "$skillset_target"
 done
 
-# Opt in because a higher-numbered SDK branch may not contain Duo support.
-if [[ "${1:-}" == '--duo' ]]; then
-  skillset_sdk_path="$(xcrun --sdk iphoneos --show-sdk-path)"
-  xcrun swiftc -typecheck -sdk "$skillset_sdk_path" -target arm64-apple-ios27.1 \
-    "$skillset_root/tests/iPhoneDuoProbe.swift"
-  printf 'Type-check passed: iPhone Duo iOS 27.1 APIs\n'
-fi
+# The iPhone Duo API probe moved to https://github.com/hechen/iphone-duo-skills (scripts/check-sdk.sh there).
